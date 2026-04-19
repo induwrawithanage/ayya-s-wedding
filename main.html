@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Themiya &amp; Rashmi — June 04, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Variables ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #faf6f1;
+      --ivory: #f5ede0;
+      --blush: #e8c9b0;
+      --rose:  #c4836a;
+      --wine:  #7a3b3b;
+      --sage:  #7a9b76;
+      --dark:  #2a1f1a;
+      --gold:  #c9a96e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--dark);
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 2px; }
+
+    /* ── Navigation ────────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: center; align-items: center;
+      gap: 2.5rem; padding: 1.1rem 2rem;
+      background: rgba(250,246,241,0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196,131,106,0.15);
+    }
+    nav a {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--wine);
+      text-decoration: none; transition: color 0.2s;
+    }
+    nav a:hover { color: var(--rose); }
+
+    /* ── Hero ──────────────────────────────────────────────────────────── */
+    #hero {
+      position: relative; height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    #hero img.hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      filter: brightness(0.55);
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(15,10,8,0.35) 0%, transparent 40%),
+        linear-gradient(to top,    rgba(15,10,8,0.45) 0%, transparent 45%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; color: #fff;
+      padding: 0 1rem;
+      animation: fadeUp 1.7s ease both;
+    }
+    .hero-pre {
+      font-family: 'Lato', sans-serif; font-weight: 300;
+      letter-spacing: 0.38em; font-size: 0.7rem;
+      text-transform: uppercase; color: var(--blush);
+      margin-bottom: 1rem;
+    }
+    .hero-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.6rem, 10vw, 8rem);
+      font-weight: 300; line-height: 1; letter-spacing: 0.03em;
+    }
+    .hero-names .amp {
+      font-style: italic; color: var(--gold);
+      font-size: 0.52em; display: inline-block;
+      margin: 0 0.35em; vertical-align: middle;
+    }
+    .hero-date {
+      margin-top: 1.2rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem; letter-spacing: 0.25em;
+      color: var(--blush);
+    }
+    .hero-scroll {
+      margin-top: 2.5rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.35rem;
+      font-size: 0.62rem; letter-spacing: 0.25em; color: rgba(255,255,255,0.45);
+    }
+    .hero-scroll .arrow { animation: bounce 2s infinite; display: block; font-size: 1rem; }
+
+    /* ── Divider ───────────────────────────────────────────────────────── */
+    .divider {
+      display: flex; align-items: center; gap: 1.2rem;
+      margin: 0 auto; max-width: 320px; padding: 2.2rem 0;
+    }
+    .divider-line { flex: 1; height: 1px; background: var(--blush); }
+    .divider-icon { color: var(--rose); font-size: 1rem; }
+
+    /* ── Section base ──────────────────────────────────────────────────── */
+    .section { padding: 5rem 1.5rem; }
+    .section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--rose);
+      text-align: center; margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300; text-align: center;
+      color: var(--dark);
+    }
+    .section-title em { font-style: italic; color: var(--rose); }
+
+    /* ── Countdown ─────────────────────────────────────────────────────── */
+    #countdown {
+      background: var(--cream);
+      text-align: center; padding: 5rem 1.5rem;
+      border-bottom: 1px solid var(--blush);
+    }
+    .countdown-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--rose);
+      opacity: 0.75;
+      margin-bottom: 3rem;
+    }
+    .countdown-grid {
+      display: flex; justify-content: center;
+      gap: clamp(1.5rem, 5vw, 4rem);
+      flex-wrap: wrap;
+    }
+    .countdown-item {
+      text-align: center; min-width: 70px;
+      position: relative;
+    }
+    .countdown-item:not(:last-child)::after {
+      content: '·';
+      position: absolute; right: calc(-1 * clamp(0.75rem, 2.5vw, 2rem));
+      top: 50%; transform: translateY(-70%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; color: var(--blush);
+    }
+    .countdown-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 8vw, 6rem);
+      font-weight: 300; line-height: 1;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+    .countdown-unit {
+      font-family: 'Cinzel', serif;
+      font-size: 0.55rem; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--rose);
+      opacity: 0.6;
+      margin-top: 0.5rem;
+    }
+
+    /* ── Story ─────────────────────────────────────────────────────────── */
+    #story { background: var(--cream); }
+    .story-wrap {
+      max-width: 660px; margin: 0 auto;
+      text-align: center; padding: 0 1rem;
+    }
+    .story-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      line-height: 1.95; color: #4a3b32;
+      font-weight: 300; font-style: italic;
+    }
+
+    /* ── Engagement Gallery ────────────────────────────────────────────── */
+    /*
+      Layout:
+        col1  col2  col3(portrait)
+      [ 1  ][ 2  ][            ]
+      [ 4  ][ 5  ][     3      ]
+    */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 0.85rem;
+      max-width: 980px; margin: 2.5rem auto 0;
+      padding: 0 1rem;
+    }
+    .gallery-item {
+      overflow: hidden; border-radius: 2px;
+      position: relative;
+    }
+    .gallery-item.g1 { grid-column: 1; grid-row: 1; aspect-ratio: 3/2; }
+    .gallery-item.g2 { grid-column: 2; grid-row: 1; aspect-ratio: 3/2; }
+    .gallery-item.g3 { grid-column: 3; grid-row: 1 / 3; }          /* portrait spans both rows */
+    .gallery-item.g4 { grid-column: 1; grid-row: 2; aspect-ratio: 3/2; }
+    .gallery-item.g5 { grid-column: 2; grid-row: 2; aspect-ratio: 3/2; }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.65s ease;
+      display: block;
+    }
+    .gallery-item:hover img { transform: scale(1.07); }
+
+    /* ── Details ───────────────────────────────────────────────────────── */
+    #details { background: var(--dark); }
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      max-width: 900px; margin: 3.5rem auto 0;
+    }
+    .detail-card {
+      position: relative;
+      padding: 3.5rem 2.5rem 3rem;
+      text-align: center;
+      border-right: 1px solid rgba(201,169,110,0.18);
+      transition: background 0.35s;
+    }
+    .detail-card:last-child { border-right: none; }
+    .detail-card::before {
+      content: '';
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.45s ease;
+    }
+    .detail-card:hover::before { width: 60%; }
+    .detail-card:hover { background: rgba(201,169,110,0.05); }
+
+    /* SVG icon wrapper */
+    .detail-icon-wrap {
+      width: 52px; height: 52px; margin: 0 auto 1.6rem;
+      border: 1px solid rgba(201,169,110,0.35);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .detail-card:hover .detail-icon-wrap {
+      border-color: var(--gold);
+      background: rgba(201,169,110,0.08);
+    }
+    .detail-icon-wrap svg {
+      width: 22px; height: 22px;
+      stroke: var(--gold); fill: none;
+      stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .detail-card-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1rem; opacity: 0.75;
+    }
+    .detail-card-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem; color: #f5ede0; font-weight: 300;
+      line-height: 1.25;
+    }
+    .detail-card-sub {
+      font-size: 0.73rem; color: rgba(255,255,255,0.35);
+      margin-top: 0.55rem; letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 640px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+      .detail-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(201,169,110,0.18);
+        padding: 2.5rem 1.5rem;
+      }
+      .detail-card:last-child { border-bottom: none; }
+    }
+
+    /* ── Venue ─────────────────────────────────────────────────────────── */
+    #venue { background: var(--ivory); }
+    .venue-mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 300px 280px;
+      gap: 0.65rem;
+      max-width: 860px; margin: 2.5rem auto 0;
+      padding: 0 1rem;
+    }
+    .venue-tile {
+      overflow: hidden; border-radius: 2px;
+    }
+    .venue-tile img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+      display: block;
+    }
+    .venue-tile:hover img { transform: scale(1.07); }
+    /* v0: venue/1.jpeg (1021×1280 portrait) — spans full left column */
+    .venue-tile.v0 { grid-column: 1 / 2; grid-row: 1 / 3; }
+    /* v1: venue/3.jpeg (1021×1280 portrait) — top right */
+    .venue-tile.v1 { grid-column: 2 / 3; grid-row: 1 / 2; }
+    /* v2: venue/5.jpeg (1166×1280 ~square) — bottom right */
+    .venue-tile.v2 { grid-column: 2 / 3; grid-row: 2 / 3; }
+    .venue-info {
+      text-align: center; margin-top: 2.5rem; padding: 0 1rem;
+    }
+    .venue-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 300; color: var(--dark); margin-bottom: 0.4rem;
+    }
+    .venue-addr {
+      font-size: 0.82rem; color: #7a6a60;
+      margin-bottom: 1.3rem; line-height: 1.7;
+    }
+    .map-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--wine); color: #fff;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem; letter-spacing: 0.2em;
+      text-transform: uppercase; padding: 0.9rem 2rem;
+      text-decoration: none; border-radius: 1px;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .map-btn:hover { background: var(--rose); transform: translateY(-2px); }
+
+    /* ── RSVP ──────────────────────────────────────────────────────────── */
+    #rsvp {
+      background: var(--dark);
+      text-align: center; padding: 6.5rem 1.5rem;
+      position: relative; overflow: hidden;
+    }
+    .rsvp-bg-text {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(5rem, 20vw, 15rem);
+      font-style: italic; font-weight: 300;
+      color: rgba(255,255,255,0.03);
+      white-space: nowrap; pointer-events: none; user-select: none;
+    }
+    .rsvp-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+      position: relative;
+    }
+    .rsvp-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 300; color: #fff; margin-bottom: 1rem;
+      position: relative;
+    }
+    .rsvp-title em { font-style: italic; color: var(--gold); }
+    .rsvp-sub {
+      font-size: 0.86rem; color: rgba(255,255,255,0.48);
+      max-width: 440px; margin: 0 auto 2.6rem;
+      line-height: 1.8; position: relative;
+    }
+    .rsvp-btn {
+      display: inline-block;
+      border: 1px solid var(--gold); color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem; letter-spacing: 0.25em;
+      text-transform: uppercase; padding: 1.1rem 3rem;
+      text-decoration: none; border-radius: 1px;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+      position: relative;
+    }
+    .rsvp-btn:hover {
+      background: var(--gold); color: var(--dark);
+      transform: translateY(-3px);
+    }
+
+    /* ── Footer ────────────────────────────────────────────────────────── */
+    footer {
+      background: var(--cream); text-align: center;
+      padding: 3rem 1.5rem;
+      border-top: 1px solid var(--blush);
+    }
+    .footer-names {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem; font-style: italic;
+      color: var(--wine); margin-bottom: 0.5rem;
+    }
+    .footer-msg {
+      font-size: 0.78rem; color: #9a8a80; letter-spacing: 0.1em;
+    }
+    .footer-copy {
+      margin-top: 0.6rem;
+      font-size: 0.68rem; color: #b8a89e; letter-spacing: 0.1em;
+    }
+
+    /* ── Fade-in animation via IntersectionObserver ─────────────────────── */
+    .fade-in {
+      opacity: 0; transform: translateY(26px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Keyframes ─────────────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(7px); }
+    }
+
+    /* ── Responsive ────────────────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      nav { gap: 1.1rem; font-size: 0.58rem; padding: 0.9rem 1rem; }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+      }
+      .gallery-item.g1 { grid-column: 1; grid-row: 1; aspect-ratio: 3/2; }
+      .gallery-item.g2 { grid-column: 2; grid-row: 1; aspect-ratio: 3/2; }
+      .gallery-item.g3 { grid-column: 1 / 3; grid-row: 2; aspect-ratio: 3/2; }
+      .gallery-item.g4 { grid-column: 1; grid-row: 3; aspect-ratio: 3/2; }
+      .gallery-item.g5 { grid-column: 2; grid-row: 3; aspect-ratio: 3/2; }
+
+      .venue-mosaic {
+        grid-template-columns: 1fr;
+        grid-template-rows: 240px 240px 200px;
+      }
+      .venue-tile.v0 { grid-column: 1; grid-row: 1; }
+      .venue-tile.v1 { grid-column: 1; grid-row: 2; }
+      .venue-tile.v2 { grid-column: 1; grid-row: 3; }
+    }
+
+    @media (max-width: 420px) {
+      nav { gap: 0.8rem; font-size: 0.52rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────────────────────── -->
+  <nav>
+    <a href="#countdown">Countdown</a>
+    <a href="#story">Our Story</a>
+    <a href="#details">Details</a>
+    <a href="#venue">Venue</a>
+    <a href="#rsvp">RSVP</a>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────────────────────── -->
+  <section id="hero">
+    <img
+      class="hero-img"
+      src="images/main.png"
+      alt="Themiya and Rashmi"
+    />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-pre">We joyfully invite you to our wedding</p>
+      <h1 class="hero-names">
+        Themiya
+        <span class="amp">&amp;</span>
+        Rashmi
+      </h1>
+      <p class="hero-date">June 04 &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Mandakini Club House</p>
+      <div class="hero-scroll">
+        <span class="arrow">↓</span>
+        Scroll to explore
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Countdown ───────────────────────────────────────────────────────── -->
+  <section id="countdown">
+    <p class="countdown-label">Counting Down to the Big Day</p>
+    <div class="countdown-grid">
+      <div class="countdown-item">
+        <div class="countdown-num" id="cd-days">00</div>
+        <div class="countdown-unit">Days</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-num" id="cd-hours">00</div>
+        <div class="countdown-unit">Hours</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-num" id="cd-minutes">00</div>
+        <div class="countdown-unit">Minutes</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-num" id="cd-seconds">00</div>
+        <div class="countdown-unit">Seconds</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Our Story ───────────────────────────────────────────────────────── -->
+  <section id="story" class="section">
+    <div class="fade-in">
+      <p class="section-label">Our Journey</p>
+      <h2 class="section-title">How It All <em>Began</em></h2>
+      <div class="divider">
+        <div class="divider-line"></div>
+        <div class="divider-icon">✦</div>
+        <div class="divider-line"></div>
+      </div>
+      <div class="story-wrap">
+        <p class="story-text">
+          Two souls who found each other amid life's beautiful chaos — what started as shy glances
+          and quiet conversations blossomed into a love that felt written in the stars. Through
+          laughter, shared dreams, and the quiet moments in between, Themiya and Rashmi discovered
+          in each other a home, a partner, and a forever.
+          <br /><br />
+          Today, they stand at the beginning of their greatest adventure yet, and they want you —
+          their dearest family and friends — to witness and celebrate this beautiful new chapter.
+        </p>
+      </div>
+    </div>
+
+    <!-- Engagement Gallery -->
+    <div class="fade-in" style="margin-top:1rem;">
+      <div class="divider">
+        <div class="divider-line"></div>
+        <div class="divider-icon">✦</div>
+        <div class="divider-line"></div>
+      </div>
+      <p class="section-label">Engagement Memories</p>
+      <div class="gallery-grid">
+        <div class="gallery-item g1">
+          <img src="images/engadement/1.jpeg" alt="Engagement photo 1" loading="lazy" />
+        </div>
+        <div class="gallery-item g2">
+          <img src="images/engadement/2.jpg" alt="Engagement photo 2" loading="lazy" />
+        </div>
+        <div class="gallery-item g3">
+          <img src="images/engadement/3.jpg" alt="Engagement photo 3" loading="lazy" />
+        </div>
+        <div class="gallery-item g4">
+          <img src="images/engadement/4.jpeg" alt="Engagement photo 4" loading="lazy" />
+        </div>
+        <div class="gallery-item g5">
+          <img src="images/engadement/5.jpg" alt="Engagement photo 5" loading="lazy" />
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Wedding Details ─────────────────────────────────────────────────── -->
+  <section id="details" class="section">
+    <div class="fade-in">
+      <p class="section-label" style="color:var(--gold);opacity:0.8;">Save the Date</p>
+      <h2 class="section-title" style="color:#f5ede0;">Wedding <em>Details</em></h2>
+      <div class="divider">
+        <div class="divider-line" style="background:rgba(201,169,110,0.3);"></div>
+        <div class="divider-icon" style="color:var(--gold);">✦</div>
+        <div class="divider-line" style="background:rgba(201,169,110,0.3);"></div>
+      </div>
+      <div class="details-grid">
+
+        <!-- Date -->
+        <div class="detail-card">
+          <div class="detail-icon-wrap">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <!-- Elegant calendar / almanac icon -->
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="3" y1="9" x2="21" y2="9"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <circle cx="12" cy="15" r="1.5" fill="currentColor" stroke="none" style="fill:var(--gold);"/>
+            </svg>
+          </div>
+          <div class="detail-card-title">Date</div>
+          <div class="detail-card-value">June 04, 2026</div>
+          <div class="detail-card-sub">Thursday</div>
+        </div>
+
+        <!-- Time -->
+        <div class="detail-card">
+          <div class="detail-icon-wrap">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <!-- Pocket watch style icon -->
+              <circle cx="12" cy="13" r="8"/>
+              <line x1="12" y1="13" x2="12" y2="9"/>
+              <line x1="12" y1="13" x2="15" y2="15"/>
+              <path d="M9 3 Q12 1 15 3" stroke-width="1.8"/>
+              <line x1="12" y1="5" x2="12" y2="3"/>
+            </svg>
+          </div>
+          <div class="detail-card-title">Time</div>
+          <div class="detail-card-value">4:00 PM Onwards</div>
+          <div class="detail-card-sub">Reception to follow</div>
+        </div>
+
+        <!-- Venue -->
+        <div class="detail-card">
+          <div class="detail-icon-wrap">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <!-- Architectural / venue marker icon -->
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+          </div>
+          <div class="detail-card-title">Venue</div>
+          <div class="detail-card-value">Mandakini<br>Club House</div>
+          <div class="detail-card-sub">Sri Lanka</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Venue ────────────────────────────────────────────────────────────── -->
+  <section id="venue" class="section" style="background:var(--cream);">
+    <div class="fade-in">
+      <p class="section-label">Getting There</p>
+      <h2 class="section-title">The <em>Venue</em></h2>
+      <div class="divider">
+        <div class="divider-line"></div>
+        <div class="divider-icon">✦</div>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Mosaic: venue/1.jpeg, venue/3.jpeg, venue/5.jpeg only -->
+      <div class="venue-mosaic">
+        <div class="venue-tile v0">
+          <img src="images/venue/1.jpeg" alt="Venue 1" loading="lazy" />
+        </div>
+        <div class="venue-tile v1">
+          <img src="images/venue/3.jpeg" alt="Venue 3" loading="lazy" />
+        </div>
+        <div class="venue-tile v2">
+          <img src="images/venue/5.jpeg" alt="Venue 5" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="venue-info">
+        <p class="venue-name">Mandakini Club House</p>
+        <p class="venue-addr">
+          Our special place for a very special day<br />Sri Lanka
+        </p>
+        <a
+          href="https://maps.app.goo.gl/dQEnVvjxuDCx8ToUA"
+          target="_blank" rel="noopener noreferrer"
+          class="map-btn"
+        >
+          📍&nbsp; Open in Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RSVP ─────────────────────────────────────────────────────────────── -->
+  <section id="rsvp">
+    <div class="rsvp-bg-text">RSVP</div>
+    <div class="fade-in">
+      <p class="rsvp-label">Kindly respond by May 20, 2026</p>
+      <h2 class="rsvp-title">Join Us on Our <em>Special Day</em></h2>
+      <p class="rsvp-sub">
+        We would be honoured to celebrate this joyful occasion with you.
+        Please confirm your attendance so we can prepare a place for you at our table.
+      </p>
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeVfUzvg5JFjqlGyZhd59EFx18RTsu2hwXPK6fcKOivDyoBqQ/viewform?usp=publish-editor"
+        target="_blank" rel="noopener noreferrer"
+        class="rsvp-btn"
+      >
+        Confirm Your Attendance
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Footer ───────────────────────────────────────────────────────────── -->
+  <footer>
+    <p class="footer-names">Themiya &amp; Rashmi</p>
+    <p class="footer-msg">Thank you for being part of our story. We can't wait to celebrate with you. 🤍</p>
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-icon">✦</div>
+      <div class="divider-line"></div>
+    </div>
+    <p class="footer-copy">June 04, 2026 &nbsp;·&nbsp; Mandakini Club House &nbsp;·&nbsp; Sri Lanka</p>
+  </footer>
+
+  <!-- ── JavaScript ────────────────────────────────────────────────────────── -->
+  <script>
+    /* -- Countdown -------------------------------------------------------- */
+    const weddingDate = new Date('2026-06-04T00:00:00');
+
+    function updateCountdown() {
+      const now  = Date.now();
+      const diff = weddingDate - now;
+
+      if (diff <= 0) {
+        ['days','hours','minutes','seconds'].forEach(u => {
+          document.getElementById('cd-' + u).textContent = '00';
+        });
+        return;
+      }
+
+      const days    = Math.floor(diff / 86400000);
+      const hours   = Math.floor((diff % 86400000) / 3600000);
+      const minutes = Math.floor((diff % 3600000)  / 60000);
+      const seconds = Math.floor((diff % 60000)    / 1000);
+
+      const pad = n => String(n).padStart(2, '0');
+      document.getElementById('cd-days').textContent    = pad(days);
+      document.getElementById('cd-hours').textContent   = pad(hours);
+      document.getElementById('cd-minutes').textContent = pad(minutes);
+      document.getElementById('cd-seconds').textContent = pad(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    /* -- Scroll fade-in --------------------------------------------------- */
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.13 }
+    );
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
